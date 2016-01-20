@@ -1,0 +1,56 @@
+
+<div id='appContainer'>
+  <div id="sidebar">
+  </div>
+
+  <div class='main-content' id="homeScreen">
+            <div id="btnTopPanel">
+          <button class="primary btn_orange" id="viewEAN">Update Order</button> <button class=
+          "primary btn_grey pull-right" id="completeOrders">Complete</button>
+        </div>
+
+        <div id="deliveryDetails" class="grey_background">
+          <div class="pull-left aligndeliveryDetails">
+            <img id="imgtruck" src=
+            "<%=view.getRelativePath('../../images/truck.png')%>" />
+            <span>Delivery:2345689</span><br />
+            <span>Screwfix</span>
+          </div>
+          <div class="pull-right aligndeliveryDetails">
+            <span><b>Due-in Date :</b> 12/24/2014</span><br/>
+            <span><b>Delivery Type : </b> Transfer </span><br/>
+          </div>
+        </div>
+
+        <div id="deliveryStatus" class="green_background">
+          <center><span>Delivery incomplete</span></center>
+        </div>
+           <div id="pageScrollHelper">
+        <div id="orderList">
+          <%  var index =0; 
+          _.each(model.filteredOrderList, function(order){ index++ %>
+          <div class="orderItem collapseOrder grey_background" id="order<%=index%>">
+            <span><%=order.customerName %>: <%=order.orderId %></span> <img class="pull-right rightArrow"
+            id="rightArrow<%=index%>" src=
+            "<%=view.getRelativePath('../../images/rightarrow.png')%>" /><br />
+            <div class="customerList" id="customerList<%=index%>">   
+             <%var eanIndex =0;
+              _.each(order.eanList, function(ean){ eanIndex++ %>             
+                <div id="order<%=index%>item<%=eanIndex%>" class="itemDiv_background">
+                  <div class="alignItemDetails pull-left">
+                    <span>EAN : <%=ean.eanId %></span><br/>
+                    <span class="boldLabel">Expected quantity <%=ean.expectedQty%></span><br/>
+                    <span><%=ean.eanDesc %></span><br/>
+                  </div>  
+                  <div class ="alignItemAllocatePanel pull-right">
+                    <span class="boldLabel">Allocated : <%=ean.allocatedQty%></span><br/>
+                  </div>
+                </div>                           
+                <% }); %>
+                </div>
+              </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+</div>

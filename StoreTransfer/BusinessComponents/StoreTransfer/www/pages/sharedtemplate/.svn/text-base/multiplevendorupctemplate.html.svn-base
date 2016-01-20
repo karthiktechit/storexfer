@@ -1,0 +1,35 @@
+<div class="vendorupc">
+	<%if(model.isMultipleVendors==true){%>
+		<div class="vendorupcheader greyBorder"><%= constant.MULTIPLE_VENDORS %></div>
+		<!-- Grid -->
+			<div class="vendorList">
+				<% _.each(model.mvdnrList, function(item){ %>
+					<ul id="vendor<%= item.vendorListIndex %>" class="vendorDetails greyBorder">
+						<li class="vendorStatus"><%= constant.STATUS %>
+							<%=item.statCodeDesc%>
+						</li>
+						<li class="vendorNumber"><%= constant.VENDOR %>
+							<%=item.mvndrNbr%>
+						</li>
+						<li class="partNumber"><%= constant.PART %>
+							<%=item.mvndrPartNbr%>
+						</li>
+						<li class="vendorName">
+							<%=item.mvndrName%>
+						</li>
+					</ul>
+					<% }); %>
+			</div>
+	<%}else{%>
+		<div class="vendorupcheader greyBorder"><%= constant.MULTIPLE_UPCS %></div>
+		<!-- <hr class="greyBorder"> -->
+		<!-- Grid -->
+		<div id="listScrollHelper">
+			<div class="upcList">
+				<% _.each(model.upcCodes, function(upc, index){ %>
+						<div id="upc<%= index %>" class="upcDetails greyBorder"><%=upc%></%></div>
+				<% }); %>
+			</div>
+		</div>
+			<%}%>
+</div>

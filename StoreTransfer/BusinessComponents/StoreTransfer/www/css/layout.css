@@ -1,0 +1,1353 @@
+.app-page{
+	margin-left: 7%;
+	width: 100%;
+}
+.screenHeader{
+	background-color: #EBE6E3;
+	height: 34px;
+}
+.screenHeader span{
+ 	line-height: 2;
+ 	padding-left: 5px;
+ }
+ .btn_orange{
+ 	height: 34px;	
+ 	width: 160px;
+	border-radius: 8px;
+	background-color: #F96400 !important;
+	color:white;
+ }
+ .btn_grey{
+ 	height: 34px;
+ 	width: 160px;
+	border-radius: 8px;
+	background-color: #666666 !important;
+	color:white;
+ }
+.grey_background{
+	background-color: #EBE6E3;
+
+	width: 85%;
+	
+	border-radius: 11px;
+}
+ .green_background{
+ 	background-color: #D1F0B4;
+ 	border-radius: 5px;
+ 	
+ }
+#btnTopPanel{
+ 	
+ 	padding-right: 15%;
+ 	margin-bottom: 1%;
+ 	margin-top: 1%;
+}
+#deliveryDetails{
+		height: 62px;
+		margin-bottom: 1%;
+}
+.right{
+-webkit-transform:rotate(0deg);	
+}
+.down{
+-webkit-transform:rotate(90deg);	
+}
+
+.orderItem{	
+	margin-top: 5px;
+	position: relative;
+	margin-left: 12px;
+	width: 20% ;
+	padding-bottom: 1%;
+	overflow: hidden;
+	float: left;
+	border-style: outset;
+}
+.orderItem span{	
+	margin-left : 3%;
+}
+.orderItem img{
+	margin-top: -1%;
+	margin-right : 1%;
+}
+.txtAllocated{
+	width:55px;
+  font-weight: bold;
+}
+#imgtruck {
+	float: left;
+	padding-top: 5px;
+}
+.customerList{
+	margin-top: 5%;
+}
+#deliveryStatus{
+	width: 85%;
+	
+	margin-bottom: 1%;
+	height: 26px;
+}
+.aligndeliveryDetails {
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-right:20px;
+}
+
+
+.itemDiv_background{
+	background-color: #EBE6E3;
+	/*height: 134px;*/
+	border-style: groove;
+	border-radius: 16px;
+}
+.white_background{
+	background-color: #FFFFFF;
+	height: 1px;
+	width: 92%;
+	margin-left: 4%;
+	margin-right: 4%;	
+}
+
+.alignItemDetails {
+	padding-left: 2px;
+	padding-top: 12px;
+	width: 100%;
+	float:none;
+}
+.alignItemAllocatePanel{
+	float:none;
+  padding-left: 2px;
+	margin-right: 4%;
+}
+.alignItemAllocatePanel br{
+		display:none;
+}
+.boldLabel{
+	font-weight: bold;
+}
+.orders-page{
+	margin-left: 10px;
+	width: 100%
+}
+
+#homeScreen{
+	width: 100%;
+  height: 455px;
+  position: relative;
+  /*overflow-y: hidden;*/
+}
+#orderList{
+  /*height: 8000px;*/
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 0;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#customerOrdersContainer{
+	margin-left: 40%;
+}
+/******************************************************************************************************************************/
+/*********************************
+						CONSTANTS
+*********************************/
+/* >>>> Color constants <<<<< */
+/* >>>> Fonts constants <<<<< */
+/* >>>> Image constants <<<<< */
+/*********************************
+						MIXINS
+**********************************/
+/*Using PascalCase to differentiate mixins from class names*/
+.PageContents {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.SelectOptions {
+  border-bottom: .1em solid #CCBFC8;
+  font-weight: 700;
+  margin: 10% 38% 0 21%;
+  width: 53%;
+  padding-right: 4%;
+}
+.TaskItemDetails {
+  display: inline-block;
+  padding: 1% 0 0 0;
+  width: 56%;
+  float: right;
+}
+.SmartNotificationButton {
+  color: #f68500;
+  font-size: 130%;
+}
+.OptionalActionMessage {
+  padding: 5%;
+  text-align: center;
+  margin: 0 15% 0 10%;
+}
+.MainContent {
+  position: relative;
+  width: 100%;
+}
+/*********************************
+						STYLES
+**********************************/
+/*---->>>  HTML element overrides  <<<----*/
+body,
+html {
+  font-weight: 100;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+.orangeHeader {
+  color: #f68500;
+}
+/* ---->>>  General overrides  <<<----*/
+.bodycolor {
+  background: #f2f2f2;
+  border-bottom: 0.15em solid #d8d8d8;
+  border-top: 0.15em solid #d8d8d8;
+}
+.displayInlineBlock {
+  display: inline-block;
+}
+.displayInline {
+  display: inline;
+}
+.rightAlign {
+  margin: 0 3% 0 0;
+}
+.boldFont {
+  font-weight: bold;
+}
+.largerFont {
+  font-size: larger;
+}
+.centerAlignText {
+  text-align: center;
+}
+/* SKU Description */
+.itemDescription {
+  height: 2.5em;
+  overflow: hidden;
+}
+.greyBorder {
+  border-bottom: 0.07em solid #e8e8e8;
+  padding-top: 1%;
+}
+.opacityClass {
+  opacity: 0.3;
+}
+/*---->>> SmartList application Header selectors  <<<----*/
+.appTitle {
+  background: #3c3c3c;
+  border-bottom: solid 2px #d8d8d8;
+  color: #d8d8d8;
+  font-family: Droid Sans;
+  font-size: 120%;
+  font-weight: 500;
+  height: 2.1em;
+  line-height: 100%;
+  top: 0%;
+  padding: 0 0 0 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.appTitle .application-title {
+  color: #d8d8d8;
+  font-size: 1.3em;
+  position: fixed;
+  left: 11%;
+  top: 2%;
+}
+.appTitle .currentDept {
+  color: #d8d8d8;
+  height: 0;
+  position: fixed;
+  left: 85%;
+  font-size: 1.2em;
+  top: 2.15%;
+}
+.appTitle .navMenuBarIcon {
+  height: 1.8em;
+  width: 1.8em;
+  position: fixed;
+  top: 0.5%;
+}
+.appTitle .navMenubar {
+  background: #3c3c3c;
+  border-radius: 10%;
+  display: block;
+  height: 67%;
+  margin-right: 4%;
+  margin-top: 1.2%;
+  padding: 1%;
+  position: relative;
+}
+.appTitle .navMenubar .menu-icon {
+  background-size: 106%;
+  height: 1.4em;
+  width: 1.4em;
+  position: fixed;
+  top: 0.6em;
+  left: 0.3em;
+}
+.appTitle .navMenuBarIcon .backMenu .backBar {
+  background-size: 80%;
+  height: 1.5em;
+  width: 1.2em;
+  position: fixed;
+  top: .6%;
+  left: 2.5%;
+}
+/* ---->>>  Sidebar menu selectors  <<<----*/
+#sidebar {
+  -webkit-transition: background 1.2s ease, padding 1.8s linear;
+  background: #3c3c3c;
+  box-sizing: border-box;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  transition: width 1.2s ease, padding 1.8s linear;
+  width: 75%;
+  z-index: 500;
+  top: 2.6em;
+}
+#sidebar .actionMenuList {
+  margin-bottom: 20%;
+}
+#sidebar .navigationMenuList #exitSmartApp {
+  border-bottom: none;
+}
+#sidebar .actionMenuList .menuItem,
+#sidebar .navigationMenuList .menuItem {
+  -webkit-transition: background 0.3s ease-in-out;
+  border-bottom: 0.1em solid rgba(253, 247, 248, 0.3);
+  color: #d8d8d8;
+  display: block;
+  font-size: larger;
+  font-weight: 100;
+  height: auto;
+  line-height: inherit;
+  padding: 5% 5%;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out;
+}
+#sidebar .navigationMenuList .highlight {
+  background-color: #f68500;
+}
+#sidebar #sidebarWrapper {
+  height: 90%;
+  position: relative;
+}
+#sidebar .filterCount {
+  background: red;
+  border: 2px solid red;
+  border-radius: 8px;
+  line-height: 1em;
+  font-size: 1em;
+}
+#sidebar .headerLabel {
+  background: #000;
+  color: #d8d8d8;
+  font-size: x-large;
+  height: 20%;
+  padding: 2% 2%;
+}
+#sidebar .itemList {
+  background: #969696;
+  border-bottom: 0.1em solid rgba(60, 60, 60, 0.37);
+  color: #3f3f3f;
+  font-size: large;
+  height: 1.2em;
+  padding: 4% 10%;
+}
+#sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.open-sidebar #sidebar {
+  -webkit-transition: background 1.2s ease, padding 1.8s linear;
+  display: block;
+  transition: background 1.2s ease, padding 1.8s linear;
+}
+.navigationMenuBackdrop {
+  top: 6%;
+  visibility: visible;
+  left: 75%;
+}
+/*---->>>  Common screen selectors  <<<----*/
+.taskList,
+.taskListSummary,
+.verifyonhands,
+.optionalActions,
+.reducedtagtask,
+.heatMaps,
+.missedScans {
+  -webkit-transition: left 0.4s ease-in-out;
+  font-family: Droid Sans;
+  height: 100%;
+  position: relative;
+  transition: left 0.4s ease-in-out;
+  width: 100%;
+}
+.rTagImage {
+  background: url("../images/reducedTag.svg");
+}
+.skuImage {
+  background: url("../images/skuImage.jpg");
+}
+.highSalesAlertImage {
+  background: url("../images/highSalesAlert.svg");
+  background-size: 100%;
+}
+.highSalesAlertImageOrangeBorder {
+  background: url("../images/highSalesAlertOrangeBorder.svg");
+  background-size: 100%;
+}
+.highSalesAlertHolder {
+  height: 2.5em;
+  width: 2em;
+}
+.highSalesAlertHolderSmall {
+  height: 1.25em;
+  width: 1em;
+}
+.taskList .highSalesAlertImage {
+  margin: 12% 2% 0 0;
+}
+.greenCheckIconImage {
+  background: url("../images/greenCheckIcon.svg");
+}
+.expiredIconImage {
+  background: url("../images/expiredIcon.svg");
+}
+.expandImage {
+  background: url("../images/expand.svg");
+}
+.collapseImage {
+  background: url("../images/collapse.svg");
+}
+.minusImage {
+  background: url("../images/minusSign.svg");
+}
+.plusImage {
+  background: url("../images/plusSign.svg");
+}
+.checkBoxEmptyImage {
+  background: url("../images/checkBoxEmpty.svg");
+}
+.checkBoxCompleteImage {
+  background: url("../images/checkBoxComplete.svg");
+}
+.menuBarImage {
+  background: url("../images/menu_bars_icon.svg");
+}
+.backImage {
+  background: url("../images/backIcon.svg");
+}
+.scanImageIcon {
+  background: url("../images/barcodeIcon.svg");
+}
+.itemDetails .itemNumber {
+  font-size: 1.3em;
+}
+.itemDetails .itemRetailAmount {
+  font-size: 1.5em;
+  padding: 0% 4% 0% 4%;
+}
+.appTitle .navMenubar .menu-icon,
+.appTitle .navMenuBarIcon .backMenu .backBar,
+.taskList .taskItem .taskItemImage,
+.itemHeaderDetails .taskItemImage,
+#messagePops .scanpopup .imageicon,
+#messagePops .scanpopup .scan-icon,
+.taskListSummary .deptSummary .imageHolder .expandCollapse,
+.optionalActions .imageicon,
+.optionalActions .operations,
+.taskList .taskItem .status-icon,
+.highSalesImage {
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.taskList .taskItem .taskItemImage,
+.itemHeaderDetails .taskItemImage {
+  background-size: 100%;
+  height: 7.2em;
+  width: 40%;
+  float: left;
+}
+.retailAmount {
+  background-color: #ffff00;
+}
+.taskList .taskItem .rTagImage,
+.itemHeaderDetails .rTagImage {
+  margin: 4% 4% 1% 1%;
+  height: 6.2em;
+  width: 36%;
+}
+#messagePops .scanpopup .imageicon,
+.optionalActions .imageicon {
+  background-size: 75%;
+  height: 1.75em;
+  width: 2.9em;
+}
+/*---->>>  Shared template selectors  <<<----*/
+.item-print .print-confirm-button {
+  background: #f68500;
+  border: 0.1em solid #a0a0a0;
+  border-radius: 0.3em;
+  color: #ffffff;
+  line-height: 130%;
+  margin: 16% 0 0 36%;
+  width: 20%;
+  padding: 0.2em;
+  border: 0em;
+}
+.item-print .printMessage {
+  margin: 36% 0% 10% 10%;
+  font-size: 1.3em;
+}
+.item-print .print-message-ok {
+  margin: 10% 0% 0% 40%;
+  border: solid .1em;
+  border-radius: 0;
+  padding: 1% 6% 1% 6%;
+  background: #f68500;
+  color: #ffffff;
+}
+/*Common SKU/RTag header*/
+.itemHeaderDetails {
+  margin-top: 3%;
+  min-height: 8em;
+}
+.taskItem .itemDetails,
+.itemHeaderDetails .itemDetails {
+  display: inline-block;
+  padding: 1% 0 0 0;
+  width: 56%;
+  float: right;
+}
+.select-signage,
+.select-printer,
+.select-stock {
+  border-bottom: .1em solid #CCBFC8;
+  font-weight: 700;
+  margin: 10% 38% 0 21%;
+  width: 53%;
+  padding-right: 4%;
+}
+#scanPops {
+  border: 1px solid;
+  border-radius: 9px;
+  left: 3.5%;
+  margin: 0 10% 0% 10%;
+  width: 70%;
+  font-family: Droid Sans;
+}
+#scanPops .scanpopup {
+  text-align: left;
+  color: black;
+  display: block;
+  height: 250px;
+  overflow-y: auto;
+  direction: rtl;
+  background: #4b4b4b;
+  font-size: 20px;
+}
+.commonPopup #popupScrollHelper {
+  position: relative;
+  height: 112%;
+  overflow: hidden;
+}
+#messagePops .smartNoButton,
+.commonPopup .divNotify .popupEvents .smartNoButton {
+  padding: 4% 5% 0 55%;
+  border-top: 0.1em solid #ffffff;
+  color: #f68500;
+  font-size: 130%;
+}
+#messagePops .smartNotificationMessage,
+.commonPopup .divNotify .popupEvents .smartNotificationMessage {
+  height: 26%;
+  padding: 11% 7% 13% 10%;
+  font-size: 130%;
+}
+#messagePops .smartInvalidMessage,
+.commonPopup .divNotify .popupEvents .smartInvalidMessage {
+  padding: 11% 7% 13% 15%;
+  width: 70%;
+}
+#messagePops .smartYesOkButton,
+.commonPopup .divNotify .popupEvents .smartYesOkButton {
+  padding: 4% 24% 2% 15%;
+  border-right: 0.1em solid #ffffff;
+  color: #f68500;
+  font-size: 130%;
+}
+.popupEvents #messagePops {
+  border-radius: 2%;
+  margin: 0 10% 0% 10%;
+  padding: 0;
+  width: 70%;
+  font-family: Droid Sans;
+}
+.popupEvents #messagePops .scanpopup {
+  background: #4b4b4b;
+  color: black;
+  direction: rtl;
+  display: block;
+  height: 11em;
+  overflow-y: auto;
+  text-align: left;
+}
+.showfilter{
+  visibility: true;
+}
+.hidefilter{
+  visibility: false;
+}
+.popupEvents #messagePops .scanpopup .scanImage {
+  margin: 8% 0 0 3%;
+}
+.popupEvents #messagePops .scanpopup .scan-icon {
+  background-size: 100%;
+  height: 3em;
+  width: 10em;
+  margin: 0 0 0 15%;
+}
+.popupEvents #messagePops .scanpopup .smartPopMessage {
+  color: #ffffff;
+  font-size: xx-large;
+  margin-top: 4%;
+}
+.popupEvents #messagePops .okNotification {
+  border-top: 0.1em solid #ffffff;
+  padding: 2% 14%;
+  color: #f68500;
+  font-size: 130%;
+}
+/*---->>>  For implementing for swiping menu  <<<----*/
+.scrollContent{
+ position: relative;
+}
+.swipe-area {
+  background: #f3f3f3;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: .5%;
+  z-index: 0;
+}
+/*---->>>  TaskList screen  <<<----*/
+.taskList .completedTask,
+.taskList .expiredTask {
+  opacity: .4;
+}
+.taskList .main-content {
+  position: relative;
+  width: 100%;
+  height: 69%;
+  top: 3.89em;
+}
+.verifyonhands .main-content,
+.reducedtagtask .main-content {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  top: 3%;
+}
+.optionalActions .main-content {
+  height: 46%;
+  position: relative;
+  width: 100%;
+  top: 3%;
+}
+.commonPopup .main-content {
+  position: relative;
+  width: 100%;
+  height: 70%;
+}
+.taskListSummary .main-content,
+.missedScans .main-content {
+  position: relative;
+  width: 100%;
+  height: 72%;
+  top: 2.5em;
+}
+.main-content #pageScrollHelper,
+.taskListSummary #pageScrollHelper,
+.optionalActions #pageScrollHelper,
+.verifyonhands #pageScrollHelper,
+.missedScans #pageScrollHelper,
+.reducedtagtask #pageScrollHelper {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.taskList .statusIconHolder {
+  position: absolute;
+  margin-left: 87%;
+}
+.taskList .statusIconHolder .status-icon {
+  background-size: 100%;
+  display: block;
+  height: 1.3em;
+  width: 2.9em;
+}
+.taskList .taskItemsList {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 0;
+  width: 100%;
+}
+.taskList .taskItemsList h1 {
+  font-weight: 100;
+}
+.taskList .taskItemsList p {
+  line-height: 160%;
+  width: 100%;
+}
+.taskList .taskItem {
+  border-bottom: 0.17em solid #f2f2f2;
+  min-height: 7.2em;
+}
+.taskList .taskItem .taskStatus {
+  background-color: rgba(0, 0, 0, 0.28);
+  min-height: 1em;
+  width: 100%;
+}
+.taskList .taskItem .taskStatus .taskLabelText {
+  color: #ffffff;
+  width: 28%;
+}
+.taskList .taskItem .taskItemDetails {
+  margin-top: -8%;
+}
+.taskList .taskListBanner {
+  background: #D3D0D4;
+  font-size: large;
+  height: 2.4%;
+  padding: 1% 3%;
+  position: fixed;
+  width: 100%;
+  top: 3.2em;
+  z-index: 100;
+}
+.taskList .taskListBanner .taskListBannerContent {
+  text-align: left;
+}
+.taskList .taskListBanner .closeTaskFilter {
+  width: 10%;
+  font-size: .8em;
+  padding: 0 1.5%;
+}
+.printInventory .reportType {
+  margin: 42% 20.7% 0%;
+  font-weight: bold;
+}
+.printInventory .select-printer {
+  margin: 45% 27% 25%;
+}
+.printInventory .print-inventory {
+  margin: 15% 0% 0% 38%;
+  padding: 4% 5% 2%;
+}
+.printInventory .printInventoryMessage {
+  margin: 60% 10% 25%;
+  font-size: 145%;
+}
+.printInventory .print-inventory-ok {
+  margin: 0% 40%;
+}
+.detailsView {
+  background: #f2f2f2;
+  border: 1px solid #a0a0a0;
+  margin-left: 0;
+  margin-right: 0;
+}
+.taskListSummary .detailsView > ul,
+.missedScans .detailsView > ul {
+  display: -webkit-box;
+}
+.taskListSummary .detailsView > ul > li.departmentDetailCell,
+.missedScans .detailsView > ul > li.departmentDetailCell {
+  color: #3f3f3f;
+  margin-left: 4%;
+  text-align: center;
+  width: 30%;
+}
+/*---->>> MissedScans screan <<----*/
+.missedScans .deptSummary .departmentHeader .departmentLabel,
+.missedScans .deptSummary .departmentHeader .departmentData {
+  font-size: 1.5em;
+}
+.missedScans .deptSummary .departmentHeader .departmentLabel {
+  width: 65%;
+}
+.taskListSummary .deptSummary .departmentHeader .departmentLabel,
+.taskListSummary .deptSummary .departmentHeader .departmentData {
+  font-size: 1.4em;
+}
+.taskListSummary .deptSummary .departmentHeader .departmentLabel {
+  width: 57%;
+}
+.missedScans .deptSummary,
+.taskListSummary .deptSummary {
+  border-bottom: 0.15em solid #d8d8d8;
+  line-height: 1.75em;
+}
+.missedScans .deptSummary.expandedHeader,
+.taskListSummary .deptSummary.expandedHeader {
+  color: white;
+  background-color: #f68500;
+}
+.missedScans .deptSummary .departmentHeader.orange span,
+.taskListSummary .deptSummary .departmentHeader.orange span {
+  color: #f68500;
+}
+.missedScans .deptSummary .departmentHeader .departmentLabel,
+.taskListSummary .deptSummary .departmentHeader .departmentLabel,
+.missedScans .deptSummary .departmentHeader .departmentData,
+.taskListSummary .deptSummary .departmentHeader .departmentData {
+  display: inline-block;
+  height: 10%;
+  margin-bottom: 0;
+  padding-bottom: 3.1%;
+  padding-top: 3.1%;
+}
+.missedScans .deptSummary .departmentData,
+.taskListSummary .deptSummary .departmentData {
+  width: 15%;
+  text-align: right;
+  margin-left: 0;
+}
+.missedScans .deptSummary .departmentLabel,
+.taskListSummary .deptSummary .departmentLabel {
+  margin-left: 0.2em;
+}
+.missedScans .deptSummary .imageHolder,
+.taskListSummary .deptSummary .imageHolder {
+  display: inline;
+  width: 15%;
+  margin-left: 0.5em;
+}
+.missedScans .deptSummary .imageHolder img,
+.taskListSummary .deptSummary .imageHolder img {
+  height: 1.3em;
+}
+.missedScans .deptSummary .expandedHeader {
+  color: #f68500;
+}
+.goToListContainer {
+  margin-bottom: 0.5em;
+}
+.goToListContainer .gotoListIcon {
+  background: #ffffff;
+  border-radius: 10%;
+  display: block;
+  height: .3em;
+  margin-left: 7.3em;
+  margin-right: 4%;
+  margin-top: 3%;
+  padding: 2% 1%;
+  position: relative;
+}
+.goToListContainer .gotoListIcon .bar {
+  background: #f68500;
+  border-radius: 10%;
+  display: block;
+  height: 70%;
+  margin-bottom: 18%;
+  padding-left: 5%;
+  width: 1em;
+}
+.goToListContainer .gotoListText {
+  color: #f68500;
+  margin-top: 0.3em;
+  margin-left: 0;
+}
+.goToListContainer .goToListDisabled .bar {
+  background: #a0a0a0;
+}
+.goToListContainer .goToListDisabled .gotoListText {
+  color: #a0a0a0;
+}
+.highSalesAlertText {
+  color: #10b569;
+  font-size: large;
+  font-style: italic;
+  width: 100%;
+}
+.highSalesAlertUL {
+  width: 100%;
+}
+.highSalesAlertLI {
+  width: 100%;
+}
+/*---->>> VerifyOnHands screen <<<----*/
+.verifyonhands {
+  height: 100%;
+}
+.verifyonhands ul {
+  color: #808080;
+}
+.verifyonhands .contentAlign {
+  padding: 0 0 0 2%;
+}
+.verifyonhands .countLbl {
+  color: #3f3f3f;
+}
+.verifyonhands #currentVal {
+  font-size: 1.8em;
+}
+.verifyonhands #lastRcvd {
+  font-size: smaller;
+}
+.verifyonhands .confirmrequest {
+  background: #f68500;
+  color: #ffffff;
+  margin: 0 0 2% 35%;
+  padding: 1% 6%;
+  border: 0.1em solid #a0a0a0;
+  border-radius: 0.3em;
+}
+.verifyonhands .qtyBox {
+  border: 0.13em solid #a0a0a0;
+  height: 1.6em;
+  width: 13%;
+  margin: 0 3% 0 0;
+}
+.verifyonhands .qtyBoxAlign li {
+  padding: 1% 0 4%;
+}
+.verifyonhands .verifyOnHandsLabel {
+  background: #3c3c3c;
+  color: #f2f2f2;
+  font-size: 100%;
+  padding: 1%;
+}
+/* Common line seperator */
+.commonPopup .line {
+  border-bottom: 0.12em solid #a0a0a0;
+  padding: 1% 0 0 2%;
+}
+.optionalActionContent .linkColor,
+.verifyonhands .linkColor {
+  color: #f68500;
+}
+/*---->>> Common popup <<<----*/
+.popupEvents .commonPopup {
+  background-color: #ffffff;
+  height: 76%;
+  margin: 0 0 0 2%;
+  padding: 0%;
+  width: 90%;
+  font-family: Droid Sans;
+}
+.popupEvents .commonPopup .cancelBtn {
+  margin: 2% 0 1% 0;
+  width: 45%;
+}
+.popupEvents .commonPopup .doneBtn {
+  bottom: 3%;
+  height: 7%;
+  position: absolute;
+  right: 37%;
+  width: 25%;
+}
+.popupEvents .commonPopup .popupTitle {
+  height: 13%;
+  border-radius: 0.9em;
+  background-color: #000000;
+  width: 100%;
+  color: #ffffff;
+}
+.popupEvents .commonPopup .popupTitle label {
+  padding: 5%;
+}
+.popupEvents .commonPopup .popupText .dataAlign {
+  display: flex;
+  justify-content: space-around;
+}
+.popupEvents .commonPopup .popupText .popupTable {
+  margin: 2% 0 0 0;
+}
+.popupEvents .commonPopup .popupText .popupTable .cellWidth {
+  width: 25%;
+}
+.popupEvents .commonPopup .popupText .popupLabels {
+  margin: 0 0 0 2%;
+}
+.popupEvents .commonPopup .popupText .infoLbls {
+  font-size: smaller;
+  margin: 2% 0 0 0;
+  padding: 0 0 1% 0;
+}
+.popupEvents .commonPopup .popupText .userLbl {
+  margin: 2% 0 0 13%;
+  text-align: left;
+}
+.popupEvents .commonPopup .popupBtn {
+  background: #f68500;
+  border: 0.1em solid #a0a0a0;
+  border-radius: 0.3em;
+  padding: 1% 0 1% 0;
+  bottom: 1%;
+}
+.popupEvents .commonPopup .yesNoPopup {
+  width: 80%;
+  height: 28%;
+  margin: 55% 0 0 7%;
+  padding: 0%;
+}
+/*---->>> OptionalActions screen <<<----*/
+.optionalActions {
+  height: 100%;
+}
+.optionalActions .status-icon {
+  background-size: 100%;
+  display: block;
+  height: 1.65em;
+  width: 2.9em;
+}
+.optionalActions .centerAlign {
+  margin: 1% 0 1% 13%;
+}
+.optionalActions .optionalActionsHeader {
+  z-index: 100;
+  position: relative;
+  background: white;
+  top: 3%;
+}
+.optionalActions .carRequestText {
+  font-size: xx-large;
+  letter-spacing: 0.005em;
+  line-height: 1em;
+  padding: 5%;
+  word-spacing: 0.4em;
+}
+.optionalActions .verifyonhandsLabel {
+  padding: 3%;
+}
+.optionalActions .confirmrequest {
+  border: 0.1em solid #a0a0a0;
+  border-radius: 0.3em;
+  margin: 1% 26%;
+  padding: 3% 3% 2% 3%;
+}
+.optionalActions .lowerMessage,
+.optionalActions .upperMessage {
+  margin: 5% 10% 5% 10%;
+}
+.optionalActions .message {
+  font-size: 1.2em;
+  line-height: .92em;
+}
+.optionalActions .messages,
+.optionalActions .requestMore,
+.optionalActions .pofollowUp,
+.optionalActions .increaseTEI,
+.optionalActions .print {
+  border-bottom: 0.1em solid #f2f2f2;
+}
+.optionalActions .requestMoreLbls {
+  display: inline-flex;
+  margin: 0 0 0 3%;
+}
+.optionalActions .lblValueAlign {
+  margin: 0 32% 0 0;
+}
+.optionalActions .carhostvalue {
+  margin: 0 28% 0 0;
+}
+.optionalActions .minusQtyBtn {
+  margin: 4% 0% 0% 25%;
+}
+.optionalActions .plusQtyBtn {
+  margin: 3%;
+}
+.optionalActions .operations {
+  background-size: 55%;
+  height: 1.75em;
+  width: 3em;
+}
+.optionalActions .wosLbls {
+  margin: 0 0 0 2%;
+}
+.optionalActions .wosRequest {
+  padding: 0 0 2% 0;
+}
+.optionalActions .optionalActionContent {
+  font-size: .9em;
+  line-height: 1.2em;
+  word-spacing: .4em;
+  margin: 0% 0% 0% 1%;
+}
+.optionalActions .optionalActionsLabel {
+  background: #a0a0a0;
+  font-size: 85%;
+  margin: 3% 0 0;
+  padding: 1.5%;
+}
+.optionalActions .optionalLabel {
+  padding: 2%;
+}
+.optionalActions .poTEI {
+  font-size: 1.4em;
+  margin: 2% 0%;
+}
+.optionalActions .pophoneNumber {
+  border: 0.1em solid #a0a0a0;
+  border-radius: 0.3em;
+  margin: 2% 0 2% 27%;
+  padding: 1.5%;
+  width: 45%;
+}
+.optionalActions .qtyBox {
+  border: 0.1em solid #a0a0a0;
+  height: 2em;
+  margin: 0 5% 2%;
+  width: 12%;
+}
+.optionalActions .vendorName {
+  font-size: 1.2em;
+}
+.optionalActions .reasonCodes {
+  border-color: #000000;
+  font-size: .99em;
+  padding: 0%;
+  width: 93%;
+  color: #000000;
+  margin: 0 0 1% 2%;
+}
+.optionalActions .requestMoreColor {
+  background: #f68500;
+  color: #ffffff;
+}
+.optionalActions .reviewTemplate {
+  border-bottom: 0.2em solid #d8d8d8;
+  margin-bottom: 2%;
+}
+.optionalActions .optionalActions .upperMessage {
+  margin: 7% 0 0 18%;
+}
+.optionalActions .optionalActions .reviewScan {
+  background: #3c3c3c;
+  color: #d8d8d8;
+  font-size: 85%;
+  padding: 1%;
+}
+.optionalActions .optionalActionButton {
+  background: #f68500;
+  border: 0.1em solid #a0a0a0;
+  border-radius: 0.3em;
+  color: #ffffff;
+  margin: 1% 35% 7% 35%;
+}
+.optionalActions .reviewShelfAvailability .disableButton,
+.optionalActions .reviewOverMissedScan .disableButton {
+  background-color: #86491A;
+  opacity: 1;
+  background-image: none;
+}
+.optionalActions .nonExpandableoptionalLabel {
+  background-color: #3c3c3c;
+  color: white;
+  padding: 1%;
+}
+.optionalActions .messageMissedScan,
+.optionalActions .messageShelfAvailability {
+  padding: 5%;
+  text-align: center;
+  margin: 0 15% 0 10%;
+}
+.optionalActions .actionList {
+  height: 100%;
+  position: relative;
+}
+.optionalActions .printMessage {
+  margin: 16% 10% 10%;
+}
+.optionalActions .print-message-ok {
+  border: solid .1em;
+  border-radius: 0;
+  margin: 1% 36%;
+  padding: 1% 6% 1% 6%;
+  background: #f68500;
+  color: #ffffff;
+}
+#requestContent .boldText {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+#requestContent .labelPadding {
+  margin-left: 4em;
+}
+/*---->>> ReducedTag screen <<<----*/
+.reducedtagtask {
+  height: 100%;
+}
+.reducedtagtask #rtag-messages {
+  font-size: 150%;
+  margin: 22% 10%;
+}
+.reducedtagtask .rtag-ok-button {
+  background: #f68500;
+  color: #ffffff;
+  margin: 0 36%;
+  width: 20%;
+  height: 2em;
+  font-size: 1.2em;
+  padding: 3% 3%;
+  border: 0.1em;
+}
+.reducedtagtask #total-count {
+  border-top: 0.1em solid #3f3f3f;
+  margin: .5% 0 0;
+}
+.reducedtagtask .rtag-item-print {
+  border-bottom: 0.07em solid #e8e8e8;
+  margin: 0 0 9% 0;
+  padding: 2% 0% 12% 2%;
+}
+.reducedtagtask .rtagSkuNumber,
+.reducedtagtask .rtagWasPrice {
+  margin: 0 6% 0 1%;
+}
+.reducedtagtask .rtagMdPrice,
+.reducedtagtask .rtagNowPrice {
+  float: right;
+  margin: 0 2% 0 0;
+}
+.reducedtagtask .vendorupc .vendorupcheader {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.reducedtagtask .vendorupc #listScrollHelper {
+  height: 100%;
+  position: relative;
+}
+.reducedtagtask .vendorupc .upcList .upcDetails,
+.reducedtagtask .vendorupc .vendorList .vendorDetails {
+  min-height: 1.5em;
+  padding: 0.4em 0 .2em 2.5em;
+}
+.reducedtagtask .vendorupc .upcList .upcDetails:active,
+.reducedtagtask .vendorupc .vendorList .vendorDetails:active {
+  background-color: #fbcea6;
+}
+/*---->>> Print Inventory <<<----*/
+/*---->>> Heat Maps screen <<<----*/
+.heatMapDiv {
+  /*	-webkit-transform: rotate(90deg);
+	 -moz-transform: rotate(90deg);
+	 -o-transform: rotate(90deg);
+	 -ms-transform: rotate(90deg);
+	 transform: rotate(90deg);*/
+  height: 100%;
+  width: 100%;
+}
+.heatMapImg {
+  height: 75%;
+}
+.rotate-180 {
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+}
+.scrollToTop {
+  position: fixed;
+  top: 100px;
+  right: 5px;
+  height: 50px;
+  width: 50px;
+  display: inline;
+  z-index: 110;
+  background-size: 100%;
+}
+/**********************************
+ >>>>Color References<<<<<
+
+ Clickable Orange Header: #f68500
+ Header and Menu gray background: #3c3c3c
+ Font color on white or light gray background: #3f3f3f
+ Font color on App title in header on black or dark gray background: #d8d8d8
+ Department Sub menu: #f2f2f2
+***********************************/
+
+
+
+/**************** Styles added for EnterASN *********************/
+.textInput{
+  width: 220px;
+  margin-top: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.enter_btn_orange{
+  height: 34px; 
+  width: 65px;
+  border-radius: 8px;
+  background-color: #F96400 !important;
+  color:white;
+ }
+ /**************** Styles added for EnterEAN *********************/
+.fieldLayout{
+    border: 1px solid #a1a1a1;
+    padding: 10px;
+    width: 90%;
+    margin-left: 5px;
+    border-radius: 15px;   
+}
+/**************** Styles added for ViewEANs *********************/
+
+.eanInput{
+  width: 200px;
+  margin-top: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.itemLayout{
+    border: 1px solid #a1a1a1;
+    padding: 5px;    
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 50px;   
+}
+.quantityText{
+  width: 50px;
+  text-align: right;    
+}
+.searchFieldLayout{
+  border: 2px solid orange;
+  margin: 5px;
+  padding: 5px;
+}
+.invalidFieldLayout{
+  border: 2px solid red;
+  margin: 5px;
+  padding: 5px;
+}
+.greenFill{
+  background: rgb(210, 250, 210);
+}
+.redFill{
+  background: rgba(243, 183, 183, 0.76);
+}
+
+/**************** Styles added for Complete *********************/
+.confirmationTable {  
+  margin: 2%;  
+  border-collapse: collapse;
+  text-align: left;
+  width: 96%;
+}

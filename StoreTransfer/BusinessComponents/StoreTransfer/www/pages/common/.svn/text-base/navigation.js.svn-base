@@ -1,0 +1,72 @@
+/* global define:false */
+/* jshint -W097 */
+"use strict";
+
+define(function () {
+
+	return {
+
+		options: {
+			expandAll: {
+				className: "expandAll",
+				idName: "expandAll",
+				value: "Expand All"
+			},
+			collapseAll: {
+				className: "collapseAll",
+				idName: "collapseAll",
+				value: "Collapse All"
+			},
+			printInventoryReport: {
+				className: "printInvenReport",
+				idName: "printInvenReport",
+				value: "Print Inventory Report"
+			},
+			smartList: {
+				className: "smartList",
+				idName: "smartList",
+				value: "Smart List"
+			},
+			heatMaps: {
+				className: "heatMaps",
+				idName: "heatMaps",
+				value: "Heat Maps"
+			},
+			help: {
+				className: "help",
+				idName: "help",
+				value: "Help"
+			},
+			exitSmartApp: {
+				className: "exitSmartApp",
+				idName: "exitSmartApp",
+				value: "Exit"
+			},
+			printReports: {
+				className: "printReports",
+				idName: "printReports",
+				value: "Print Reports"
+			},
+			smartListSummary: {
+				className: "smartListSummary",
+				idName: "smartListSummary",
+				value: "Smart List Summary"
+			},
+			missedScans: {
+				className: "missedScans",
+				idName: "missedScans",
+				value: "View Missed Scans Detail"
+			},
+			changeDepartment: {
+				className: "changeDepartment",
+				idName: "changeDepartment",
+				value: "Change Department"
+			},
+			filterSmartList: {
+				className: "filterSmartList",
+				idName: "filterSmartList",
+				value: "Filter"
+			}
+		}
+	};
+});

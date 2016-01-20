@@ -1,0 +1,12 @@
+<div class="itemHeaderDetails greyBorder">
+	<% var isRTag=false; %> 
+	<% isRTag = model.taskDetails.rTagIdentifier; %> 
+	<span class="taskItemImage reduced-tag-icon <%= isRTag ? 'rTagImage' : 'skuImage' %> "></span>
+	<span class="itemDetails">
+        <span class="status-icon greenCheckIconImage hide pull-right"></span>
+		<div class="itemDescription"><%= model.taskDetails.itemDesc ? model.taskDetails.itemDesc : "" %></div>
+		<div class="itemNumber"><%= model.taskDetails.itemIdentifier ? model.taskDetails.itemIdentifier: model.taskDetails.rTagIdentifier %></div>
+		<div class="itemLocation"><%= model.taskDetails.itemLocation ? model.taskDetails.itemLocation : "" %></div>
+		<div class="itemRetailAmount pull-right <%= view.page === constant.OPTIONALACTIONSPAGE ? model.checkForClearanceSKU() : '' %>">$<%= model.taskDetails.itemPrice ? model.taskDetails.itemPrice : "" %></div>
+	</span>
+</div>

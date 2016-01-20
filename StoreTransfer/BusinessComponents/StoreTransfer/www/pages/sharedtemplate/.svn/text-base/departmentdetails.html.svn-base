@@ -1,0 +1,41 @@
+<ul>
+	<% _.each(model.columnLabels, function(label){ %>
+	<li class="departmentDetailCell"><%= label %></li>
+	<%});%>
+</ul>
+<% _.each(model.currentDepartment.rows, function(row, i){ %>
+<ul>
+	<% if(model.rowLabels.length > 0) { %>
+	<li class="departmentDetailCell"><%= model.rowLabels[i] %></li>
+	<% } %>
+	<% _.each(row, function(field){ %>
+	<li class="departmentDetailCell"><%= field %></li>
+	<%});%>
+</ul>
+		<% if(model.rowLabels[i+1] === "Total") {%>
+		<div class="greyBorder"></div>
+		<%}%>
+<%});%>
+<% if(model.rowLabels.length === 0) { %>	
+<div class="greyBorder"></div>
+<%}%>	
+<ul class="highSalesAlertUL">
+	<li class="highSalesAlertLI centerAlignText">
+		<% if(model.currentDepartment.hasHighSalesAlert) { %>
+		<span class="highSalesAlertHolderSmall highSalesImage highSalesAlertImage"></span>
+		<span class="highSalesAlertText">High Sales Alert(s) Available</span>
+		<% } %>
+	</li>
+</ul>
+<% if(model.currentDepartment.departmentNumber > 0) { %>
+<ul class="goToListContainer">
+	<span class="gotoList <%= model.converters.booleanToClassConverter('goToListDisabled', !model.missedScans ? true : (model.currentDepartment.hasMissedScans)) %>" data-department=<%= model.currentDepartment.departmentNumber %>>
+		<span class="gotoListIcon pull-right">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</span>
+		<li class="gotoListText">Go To List</li>
+	</span>
+</ul>
+<% } %>

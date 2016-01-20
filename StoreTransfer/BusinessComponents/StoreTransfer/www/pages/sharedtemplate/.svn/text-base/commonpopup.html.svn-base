@@ -1,0 +1,73 @@
+<div class="modal commonPopup">
+	<div class="popupTitle">
+      <label class="boldFont"><%= model.popupTitle %>
+      </label>
+  </div>
+  <div class="main-content">
+ 	<div id="popupScrollHelper">
+      <div class="popupText">
+        <% var isColAvailable =  model.popupTitle === "OH Adjustment Log"; %>
+        <% var isCarHostDialog = model.popupTitle === "CAR/HOST Request" ; %>  
+        <% _.each(model.popupValues, function(item,index){ %>
+        <div>
+             <table class="popupTable" border="0" width="100%">
+          <tr>
+             
+            <th class="<%= (isColAvailable) ? 'cellWidth' : ''  %>" ><%= model.popupLabels.labelColumnOne %></th>
+            <th><%= model.popupLabels.labelColumnTwo %></th>
+            <th><%= model.popupLabels.labelColumnThree %></th>
+            <% if(isColAvailable) { %>
+              <th><%= model.popupLabels.labelColumnFour %></th>
+            <% } %>
+          </tr>
+          <tr class="infoLbls">
+            <td><%= item.valueColumnOne %></td>
+            <td><%= item.valueColumnTwo %></td>
+            <td><%= item.valueColumnThree %></td>
+            <% if(isColAvailable) { %>
+              <td><%= item.valueColumnFour %></td>
+            <% } %>
+          </tr>
+          </table>        
+		 <% if (!isColAvailable) {%> 		
+          <div  class="infoLbls <%= (!isCarHostDialog) ? 'dataAlign' : '' %> ">
+            <span class="popupLabels boldFont"> <%= model.popupLabels.labelColumnFive %> </span>
+            <span><%= item.valueColumnFive %></span>
+            <% if(!isCarHostDialog) { %>
+              <span class="popupLabels boldFont"> <%= model.popupLabels.labelColumnSix %> </span>
+              <span><%= item.valueColumnSix %></span>
+            <% } %>
+          </div>
+		<% } else { %>
+			<div class="userLbl">User: txj0748</div>
+			<div>Comment:
+				<textarea rows="2" cols="5" class="commentsTxtArea commentText" id="commentBox<%= index %>" ></textarea> 
+			</div>
+			
+		<% } %>
+          <% if(isCarHostDialog) { %>
+            <button class="btn btn-large btn-warning primarybtn popupBtn cancelBtn" id="cancelButton<%= index %>">Cancel Request</button>		
+          <% } %>
+          <%if(!(index === (model.popupValues.length-1))){%>
+            <div class="line"></div>
+          <%}%>
+        </div>
+      <% }); %>
+    </div>
+	</div>
+  </div>
+  <button class="btn btn-large btn-warning popupBtn doneBtn">Done</button>
+	 <br>
+	 <div class="divNotify fpControlsPopup-container hide">
+        <div class="popupEvents" style="visibility: visible;">
+            <div  class="modal confrm-grey fpControlsPopup-messagebox-container yesNoPopup boldFont">    
+                <div class="divMsg fpControlsPopup-messagebox-label smartNotificationMessage"></div>
+                 <br/>      
+                 <div class="fpControlsPopup-messagebox-button-group">   
+                      <div class="smartYesOkButton pull-left">Yes</div>
+    				           <div class="smartNoButton">No</div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>	

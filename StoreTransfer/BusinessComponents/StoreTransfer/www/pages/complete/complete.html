@@ -1,0 +1,40 @@
+<div id='appContainer'>
+    <div class="screenHeader">
+      <span id="pageHeader">Complete Orders</span>
+    </div>
+	
+	<div id="sidebar">
+	</div>
+
+	<div class="main-content container">
+		<div id="btnTopPanel">		
+			<button class="primary btn_orange" id="viewOrders">View Orders</button>			
+		</div>
+		<div>
+			<% _.each(model.deliveryDetails, function(delivery){ %>	
+				<table class="confirmationTable" border="1">
+					<tr>
+						<th>Delivery# </th>
+						<td><%= delivery.deliveryId %></td>
+					</tr>
+					<tr>
+						<th>From </th>
+						<td><%= delivery.deliveryFrom %></td>
+					</tr>
+					<tr>
+						<th>Due-in Date </th>
+						<td><%= delivery.dueInDate %></td>
+					</tr>
+					<tr>
+						<th>Delivery Type </th>
+						<td><%= delivery.deliveryType %></td>
+					</tr>
+					<tr>
+						<th># of Orders </th>
+						<td><%= delivery.orders.length %></td>
+					</tr>				
+				</table>
+			<% }); %>
+		</div>	
+	</div>
+</div>

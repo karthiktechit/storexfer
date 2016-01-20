@@ -1,0 +1,26 @@
+<div class="modal confrm-grey" id="messagePops">
+    <% if(model.isScanPopUp) { %>
+    <div class="scanpopup">
+       <div class="smartPopMessage centerAlignText">
+           <%=model.popupMessage%>
+       </div>
+       <div class="smartPopMessage centerAlignText">
+            <%=model.identifier%>
+       </div>
+       <div class="scanImage"><span class="scanImageIcon scan-icon"></span>
+       </div>
+    </div>
+    <% } else { %>
+    <div class="smartNotificationMessage">
+           <%=model.notificationMessage%>
+    </div>
+    <div class="<%= model.isOKNotification ? 'okNotification' : 'smartYesOkButton pull-left' %>">
+        <% if(model.isOKNotification) { %>
+        OK
+        <% } else { %>
+        Yes
+        <% } %>
+    </div>
+    <div class="<%= model.isOKNotification ? 'hide' : 'smartNoButton' %>">No</div>
+    <% } %>
+</div>

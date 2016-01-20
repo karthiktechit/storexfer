@@ -1,0 +1,43 @@
+<div class="item-print">
+	<% if(model.isPrintMessage) { %>
+	     <div class="printMessage"> <%= model.printSuccessMessage %> </div>
+	     <button class="btn btn-large btn-warning primarybtn btn-apply-filter print-message-ok">Ok</button>   
+	<% } else { %>
+	     <% if(model.isRTagPrinttemplate) { %>
+	        <div class="rtag-item-print">
+	            <ul class="rtag-details">
+	                <li class="rtagSkuNumber pull-left"><%= constant.SKU %> 
+	                    <%= model.itemDetails.skuNo %> 
+	                </li>
+	                <li class="rtagMdPrice"><%= constant.TOTAL_MD %> 
+	                    <%= ((model.itemDetails.oldRTagAmt - model.itemDetails.newRTagAmt).toFixed(2)) %>
+	                </li>
+	                <li class="rtagWasPrice pull-left"><%= constant.WAS %>
+	                    <%= model.itemDetails.oldRTagAmt.toFixed(2) %>
+	                </li>
+	                <li class="rtagNowPrice"><%= constant.NOW %>
+	                    <%= model.itemDetails.newRTagAmt.toFixed(2) %>
+	                </li>
+	            </ul>
+	        </div>
+	    <% } %>
+	        <div class="print-options optionalActionContent">
+	                <select class="select-signage">
+	                <% _.each(model.signageArray, function(signage) { %>
+	                <option id="signCode<%= signage.index%>"><%= signage.name%></option>
+	                <% }); %>
+	                </select>
+	                <select class="select-printer">
+	                <% _.each(model.printerList, function(printer) { %>
+	                <option><%= printer.description%></option>
+	                <% }); %>
+	                </select>
+	                <select class="select-stock">
+	                <% _.each(model.stockArray, function(stockType) { %>
+	                <option><%= stockType.name%></option>
+	                <% }); %>
+	                </select>
+	                <button class="btn btn-large btn-warning primarybtn btn-apply-filter print-confirm-button" disabled><%= (model.isRTagPrinttemplate) ? 'Done' : 'Print' %></button>
+	        </div>
+	<% } %>   
+</div>

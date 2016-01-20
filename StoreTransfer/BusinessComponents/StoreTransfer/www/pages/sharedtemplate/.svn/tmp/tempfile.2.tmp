@@ -1,0 +1,11 @@
+<div class="itemHeaderDetails">
+	<% var isRTag=false; %> 
+	<% isRTag = model.taskDetails.rTagIdentifier; %> 
+	<span class="taskItemImage reduced-tag-icon <%= isRTag ? 'rTagImage' : 'skuImage' %> "></span>
+	<span class="itemDetails">
+		<div class="itemDescription"><%= model.taskDetails.itemDesc ? model.taskDetails.itemDesc : "" %></div>
+		<div class="itemNumber"><%= model.taskDetails.itemIdentifier ? model.taskDetails.itemIdentifier: model.taskDetails.rTagIdentifier %></div>
+		<div class="itemLocation"><%= model.taskDetails.itemLocation ? model.taskDetails.itemLocation : "" %></div>
+		<div class="itemRetailAmount">$<%= model.taskDetails.itemPrice ? model.taskDetails.itemPrice : "" %></div>
+	</span>
+</div>

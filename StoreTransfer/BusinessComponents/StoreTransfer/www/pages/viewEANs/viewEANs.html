@@ -1,0 +1,43 @@
+<div id='appContainer'>
+    <div class="screenHeader">
+      <span id="pageHeader">Update Orders</span>
+    </div>
+	
+	<div id="sidebar">
+	</div>
+
+	<div class="main-content container">
+		<div>
+			<input type ="text" class="eanInput" id="inputEAN" placeholder="Enter EAN"></input>
+			<img id="searchEAN" src="<%=view.getRelativePath('../../images/search.png')%>" />
+			<img id="clearEAN" src="<%=view.getRelativePath('../../images/clear.png')%>" />
+			<button class="primary enter_btn_orange" id="allocateBtn">Allocate</button>
+		</div>
+		<div id="searchFieldDiv">
+			<span id="eanDescription"></span>
+		</div>	
+		<div id="ordersList">
+			<% _.each(model.ordersList, function(order){ %>				
+				<% _.each(order.eanList, function(item){ %>
+					<div class='itemLayout 
+						<%= (item.allocatedQty > 0) ? 				
+						((item.allocatedQty === item.expectedQty) ? "greenFill" : "redFill" )
+						: "" %>'>
+						<div class="pull-left">
+							<span><%= order.customerName %> : <%= item.eanId %></span><br/>
+							<span><b>Expected Quantity <%= item.expectedQty %></span></b><br/>
+						</div>
+						<div class="pull-right">
+							<span>
+								<%= ((item.allocatedQty > 0) && 
+									(item.allocatedQty === item.expectedQty)) ? "Allocated" :
+									"Allocate" %>
+							</span><br/>
+			  				<input type = 'text' class='quantityText' id='<%= order.id %>_<%= item.eanId %>' value= <%= item.allocatedQty %> <br/>	
+						</div>	  				
+					</div>	
+				<% }); %>					
+			<% }); %>	
+		</div>		
+	</div>
+</div>

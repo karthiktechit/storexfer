@@ -1,0 +1,75 @@
+/* global define:false */
+/* jshint -W097 */
+
+"use strict";
+
+/*
+ * This mimics the functionality in the C# client Resource file.
+ * Data shared among all SmartList Workflow's
+ */
+define(function () {
+	return {
+
+		/* Page title */
+		SMARTLISTTITLE: "Smart List",
+		SMARTSUMMARYTITLE: "Smart List Summary",
+		MISSEDSCANSTITLE: "Missed Scans",
+
+		/* Generic Constants */
+		YES: "Y",
+		NO: "N",
+		SUCCESS: "SUCCESS",
+		FAIL: "FAIL",
+		ERROR: "ERROR",
+
+		REDUCED_TAG_SCAN: "reduced-tag-identifier-scan",
+		ISAL_DESC: "RTag",
+		ISAL_SUB_DESC: "ReducedTag",
+		SALVAGE: "salvage",
+		MULTIPLE_VENDORUPC: "vendorupc",
+		PRINT: "print",
+		ISAL: "isal",
+		SKU_SCAN: "item-sku-scan",
+		TASK_LIST: "taskList",
+		VERIFYOHPAGE: "verifyOnHands",
+		OPTIONALACTIONSPAGE: "optionalActions",
+		LABELCOLOR_YELLOW: "Y",
+		LABELMODE: "R",
+		PRINTMODE_SPOOL: "SPOOL",
+		PRINTMODE_IMMEDIATE: "immediate",
+		SPOOL_SUCCESS_MESSAGE: "Label has been sent to the Spooler.",
+		PRINT_SUCCESS_MESSAGE: "Label has been sent to the Printer.",
+		
+		/* To Store Printer List */
+		SPOOL_PRINTERLIST: [],
+
+		/* Scan Messages  */
+		ScanMsg: {
+			INVALID_REDUCEDTAG: "Invalid Reduced Tag",
+			INVALID_BARCODE: "Invalid Barcode Scanned",
+			INVALID_ITEM: "Invalid Item Scanned",
+		},
+
+		ReducedTagMsg: {
+			HAZMAT_MESSAGE: "By proceeding you acknowledge that all fuels and batteries have been removed and all Hazardous items will be processed using HHM procedures.",
+			SALVAGE_SUCCESS: "Worked successfully. Remove item from sales floor and place immediately in ZMA bin.",
+			SALVAGE_FAILURE: "Salvage unsuccessful.Kindly salvage the item after sometime.",
+			PRINT_SUCCESS: "Reduced Tag Label has been sent to the Printer.",
+			PRINT_FAILURE: "Print unsuccessful.Kindly print the task after sometime.",
+		},
+
+		ReducedTagSalvageMsg: function (arg) {
+			return "Total Markdown : $ " + arg + ". Do you want to continue ?";
+		},
+        OverStockItemMessage: function (arg) {
+            return "Item has " + arg + " weeks of supply";
+        },
+        ClearanceItemMessage: function (arg) {
+            return "Extended Retail: $" + arg + ".";
+        },
+		/* Constants */
+		ISAL_CODE: 11,
+		PRINT_TASK_CODE: 170,
+		SALVAGE_TASK_CODE: 171,
+	};
+});

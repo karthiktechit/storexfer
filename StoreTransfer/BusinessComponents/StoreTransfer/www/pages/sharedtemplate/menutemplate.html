@@ -1,0 +1,37 @@
+<div id="sidebarWrapper">
+	<div id="iScrollHelper">
+		<div class="actionMenuList">
+            <label class="headerLabel">Actions:</label>
+			<ul class="topNavMenuList">
+				<% _.each(model.menuActionsList, function(item){ %>
+					<li class="menuItem" id="<%=item.idName%>">
+						<%=item.value %>
+					</li>
+	
+
+							<% if(item.className=="filterSmartList" && model.filterList) { %>
+								<ul class="filterList <%=model.showFilter%>" >
+									<% _.each(model.filterList, function(item){ %>
+										<li class="itemList" id="<%=item.id%>" data-filter=<%= item.filterCode %>>
+											<span class="filterCategory"><%=item.category%></span>
+											<span class="filterCount badge pull-right"><%=item.value%></span>
+										</li>
+										<% }); %>
+								</ul>
+								<% } %>
+									<% }); %>
+			</ul>
+		</div>
+
+		<div class="navigationMenuList">
+			<label class="headerLabel">Go To:</label>
+			<ul class="topNavMenuList">
+						<% _.each(model.menuNavigationList, function(item){ %>
+							<li class="menuItem" id="<%=item.idName%>">
+								<%=item.value %>
+							</li>
+							<% }); %>
+			</ul>
+		</div>
+	</div>
+</div>
